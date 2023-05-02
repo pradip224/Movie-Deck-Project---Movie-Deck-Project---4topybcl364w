@@ -5,6 +5,8 @@ var movies = [],
   favGrid;
 //regex - contains symbols which should not be in the search string
 const regex = /[!@#$%^&*(),.?":{}|<>]/g;
+
+// ----------------------------------------------------
 //movie class to create each movie object, also with method addToFavorite,removeFromFavorite
 class Movie {
   constructor(id, title, releaseDate, ratings, voteCount, posterPath) {
@@ -31,6 +33,9 @@ class Movie {
       "Add to Favorites";
   }
 }
+
+// ----------------------------------------------------------------
+
 
 //fetchData -fetchs data from api
 const fetchData = async () => {
@@ -65,12 +70,16 @@ const fetchData = async () => {
   }
 };
 
+// ----------------------------------------------------------
+
 const showMore = ({ metadata, showMoreBtn }) => {
   showMoreBtn.innerText =
     showMoreBtn.innerText === "Show More" ? "Show less" : "Show More";
   metadata.style.display =
     metadata.style.display === "block" ? "none" : "block";
 };
+
+// ----------------------------------------------------------------
 
 const createMovieCard = (movie, cardGrid) => {
   const { id, title, releaseDate, ratings, voteCount, posterPath } = movie;
@@ -119,6 +128,8 @@ margin: auto;
   cardGrid.appendChild(card);
 };
 
+// ---------------------------------------------------------------
+
 const generateFavBtnText = (cardGrid, id) => {
   if (cardGrid === allMoviesGrid) {
     return favMovies.find((movie) => movie.id === id)
@@ -129,11 +140,14 @@ const generateFavBtnText = (cardGrid, id) => {
   }
 };
 
+// ------------------------------------
+
 const reRenderCardGrid = (updatedMoviesList, movieGrid) => {
   movieGrid.innerHTML = "";
   updatedMoviesList.forEach((movie) => createMovieCard(movie, movieGrid));
 };
 
+// -----------------------------------------
 const searchMovies = (elem) => {
   if (regex.test(elem.value)) {
     alert("Invalid search");
@@ -145,6 +159,7 @@ const searchMovies = (elem) => {
   }
 };
 
+// ------------------------------------------
 const sortByRating = (sortOrder) => {
   const sortedMovies = movies.sort((movie1, movie2) =>
     sortOrder === "asc"
@@ -154,6 +169,7 @@ const sortByRating = (sortOrder) => {
   reRenderCardGrid(sortedMovies, allMoviesGrid);
 };
 
+// ---------------------------------------------
 const sortByRelease = (sortOrder) => {
   const sortedMovies = movies.sort((movie1, movie2) =>
     sortOrder === "asc"
@@ -163,6 +179,7 @@ const sortByRelease = (sortOrder) => {
   reRenderCardGrid(sortedMovies, allMoviesGrid);
 };
 
+// -----------------------------------------------
 const sortMovies = (elem) => {
   switch (elem.value) {
     case "rating-desc":
@@ -180,6 +197,7 @@ const sortMovies = (elem) => {
   }
 };
 
+// ---------------------------------------------------
 const toggleFavMovies = ({ movie, favoriteBtn }) => {
   if (favoriteBtn.innerText === "Add to Favorites") {
     favoriteBtn.innerText = "Remove from Favorites";
