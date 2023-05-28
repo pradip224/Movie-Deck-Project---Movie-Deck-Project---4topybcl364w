@@ -1,4 +1,4 @@
-// movies-movies list, allMoviesGrid- grid to render movies, favMovies - list of favourite movies, favGrid-to render favMovies 
+// movies-movies list, allMoviesGrid- grid to render movies, favMovies - list of favourite movies, favGrid-to render favMovies
 var movies = [],
   allMoviesGrid,
   favMovies,
@@ -17,14 +17,14 @@ class Movie {
     this.voteCount = voteCount;
     this.posterPath = posterPath;
   }
-//to add new movie to the favMovies list
+  //to add new movie to the favMovies list
   addToFavorite() {
     favMovies.push(this);
     localStorage.setItem("favMovies", JSON.stringify(favMovies));
     reRenderCardGrid(favMovies, favGrid);
   }
 
-//remove movie from the favMovies list, set text to "Add to Favorites"
+  //remove movie from the favMovies list, set text to "Add to Favorites"
   removeFromFavorite() {
     favMovies = favMovies.filter((movie) => movie.id !== this.id);
     localStorage.setItem("favMovies", JSON.stringify(favMovies));
@@ -36,16 +36,15 @@ class Movie {
 
 // ----------------------------------------------------------------
 
-
 //fetchData -fetchs data from api
 const fetchData = async () => {
-//favGrid-reference to the favorite-grid 
+  //favGrid-reference to the favorite-grid
   favGrid = document.getElementById("favorite-grid");
-//gets favMovies list from local storage -else- empty []
+  //gets favMovies list from local storage -else- empty []
   favMovies = JSON.parse(localStorage.getItem("favMovies")) ?? [];
-//renders the favMovies in the favGrid
+  //renders the favMovies in the favGrid
   reRenderCardGrid(favMovies, favGrid);
-//ref to the allMoviesGrid
+  //ref to the allMoviesGrid
   allMoviesGrid = document.getElementById("all-movies-grid");
   try {
     const res = await fetch(
@@ -155,7 +154,14 @@ const searchMovies = (elem) => {
     const filteredMovies = movies.filter((movie) =>
       movie.title.toLowerCase().includes(elem.value.toLowerCase())
     );
-    reRenderCardGrid(filteredMovies, allMoviesGrid);
+    if(filteredMovies.length == 0){
+      allMoviesGrid.innerText = "No Match found!!"
+    }
+    else{
+
+      reRenderCardGrid(filteredMovies, allMoviesGrid);
+    }
+
   }
 };
 
