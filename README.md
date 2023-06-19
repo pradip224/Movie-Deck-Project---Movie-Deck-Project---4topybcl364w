@@ -20,6 +20,7 @@ With the abundance of movies and TV shows available across various platforms, it
 1. **Search Movies:**
    - Users can enter keywords in a search bar to find specific movies by their titles.
    - The application will dynamically filter the displayed movie list based on the user's search query.
+![search](https://github.com/pradip224/Movie-Deck-Project---Movie-Deck-Project---4topybcl364w/assets/122960934/11132aba-632b-4232-bbda-6ddeb94039ea)
 
 2. **Sort Movies:**
    - Users can choose to sort the movie list based on rating or release date.
@@ -30,6 +31,7 @@ With the abundance of movies and TV shows available across various platforms, it
    - Users can add movies to their favorites list by clicking on a designated button/icon within each movie card.
    - A favorites tab will be available where users can view all the movies they have added as favorites.
    - Movies in the favorites tab will retain their original order, regardless of search or sorting actions performed on the main movie list.
+![favorite tab](https://github.com/pradip224/Movie-Deck-Project---Movie-Deck-Project---4topybcl364w/assets/122960934/079e82fa-dcd6-4478-92ba-8afc9ae3e852)
 
 4. **Persistent Storage:**
    - Users' favorite movies will be stored in the browser's local storage.
