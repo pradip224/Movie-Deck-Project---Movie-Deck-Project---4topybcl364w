@@ -3,6 +3,7 @@
 ## Project Objective
 
 The objective of this project is to build a web-based application that allows users to explore and manage a list of popular movies. The application will provide various features, including searching for movies, sorting movies by rating or release date in ascending or descending order, and adding/removing movies from a favorites tab.
+![home](https://github.com/pradip224/Movie-Deck-Project---Movie-Deck-Project---4topybcl364w/assets/122960934/692ea6be-201b-4497-8eba-e72757c7ffdd)
 
 ## Project Context
 
